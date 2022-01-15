@@ -118,7 +118,7 @@ function mappy:link()
     end
     local links = utils.walk(maps)
     for mapping, description in pairs(links) do
-        wk.register({ [mapping] = { name = description } })
+        wk.register({ [mapping] = { description } })
     end
     return self
 end
