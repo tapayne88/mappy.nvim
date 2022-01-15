@@ -117,8 +117,17 @@ function mappy:link()
         return
     end
     local links = utils.walk(maps)
+    local options = self.options or {}
     for mapping, description in pairs(links) do
-        wk.register({ [mapping] = { description } })
+        wk.register({
+            [mapping] = {
+                description,
+                mode = options.mode,
+                noremap = options.map.noremap,
+                silent = options.map.silent,
+                buffer = options.map.buffer
+            }
+        })
     end
     return self
 end
